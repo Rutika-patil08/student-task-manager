@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect,session
 
+#import dbconfig for database
+
 from db_config import get_database_connection
 
 #create flask application
@@ -21,6 +23,8 @@ def login():
         connection = get_database_connection()
 
         cursor = connection.cursor(dictionary=True)
+
+        #SQL query to chek username and password exist in the tab
 
         query = """
             SELECT *
